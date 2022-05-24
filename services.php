@@ -66,30 +66,50 @@ include "dbConfig.php";
         <div class="row">
             <?php
             // Fetching all university
-            $sql = "SELECT id, name, description FROM university";
+            // $sql = "SELECT id, name, description FROM university";
+
             // $sql = "SELECT university.id, university.name AS name , department.dep_name, department.id
             //     FROM university
             //     INNER JOIN department ON university.id = department.id";
 
-            $result = mysqli_query($conn, $sql);
+            // $result = mysqli_query($conn, $sql);
             
-            if (mysqli_num_rows($result) > 0) {
-              // output data of each row
-              while($row = mysqli_fetch_assoc($result)) { 
+            // if (mysqli_num_rows($result) > 0) {
+            //   // output data of each row
+            //   while($row = mysqli_fetch_assoc($result)) { 
                   ?>
 
                 <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header bg-dark text-white">
-                        <h3><?php echo $row["name"] ?></h3>
+                        <!-- <h3><?php echo $row["name"] ?></h3> -->
+                        <h3>PostGrad</h3>
                     </div>
                     <div class="card-body">
                         <!-- <h4 class="card-title">$59.99/Month</h4> -->
-                        <p class="card-text"><?php echo $row["description"] ?></p>
+                        <!-- <p class="card-text"><?php echo $row["description"] ?></p> -->
                         <ul class="list-group">
-                            <li class="list-group-item">
+                            <!-- <li class="list-group-item">
                                 <i class="fas fa-check"></i> CSE
-                            </li>
+                            </li> -->
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">
+                                            <a href="#collapse1" data-toggle="collapse" data-parent="#accordion">
+                                                <i class="fas fa-arrow-circle-down"></i> CSE
+                                            </a>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse1" class="collapse show">
+                                        <div class="card-body">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit laborum qui,
+                                            debitis, sequi dolores nobis mollitia
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <li class="list-group-item">
                                 <i class="fas fa-check"></i> BBA
                             </li>
@@ -109,11 +129,11 @@ include "dbConfig.php";
             </div>
 
             <?php
-              }
-            } else {
-              echo "0 results";
-            }
-            mysqli_close($conn); ?>
+            //   }
+            // } else {
+            //   echo "0 results";
+            // }
+            // mysqli_close($conn); ?>
 
         </div>
     </div>

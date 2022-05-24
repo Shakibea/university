@@ -141,7 +141,7 @@
 </section>
 
 <!-- INFO SECTION -->
-<section id="info" class="py-3">
+<!-- <section id="info" class="py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-6 align-self-center">
@@ -155,7 +155,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- From Miz template -->
 
@@ -251,7 +251,7 @@
 <!-- Ending Mizz -->
 
 <!-- VIDEO PLAY -->
-<section id="video-play">
+<!-- <section id="video-play">
     <div class="dark-overlay">
         <div class="row">
             <div class="col">
@@ -265,7 +265,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- starting mi -->
