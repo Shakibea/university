@@ -1,6 +1,6 @@
 <?php
 session_start([
-    'cookie_lifetime' => 300,
+    'cookie_lifetime' => 3000,
 ]);
 
 include_once 'inc/functions.php';
@@ -36,10 +36,10 @@ if (!$_user_id) {
     <ul class="menu">
         <li><a href="#" class="menu-item">Profile <?php echo "(" . $_user_name . ")"; ?></a></li>
         <br>
-        <li><a href="admin.php" class="menu-item" data-target="words">All Products</a></li>
-        <li><a href="add_product.php" class="menu-item">Add New Products</a></li>
+        <li><a href="admin.php" class="menu-item" data-target="words">All University</a></li>
+        <li><a href="add_product.php" class="menu-item">Add New University</a></li>
         <li><a href="admin_user.php" class="menu-item" data-target="users">All Users</a></li>
-        <li><a href="#" class="menu-item">Order List</a></li>
+        <!-- <li><a href="#" class="menu-item">Order List</a></li> -->
         <br>
         <li><a href="logout.php">Logout</a></li>
     </ul>
@@ -81,17 +81,33 @@ if (!$_user_id) {
         <tr>
             <th>#Id</th>
             <th width="20%">Name</th>
-            <th>Definition</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Status</th>
+            <th>Description</th>
+            <th>Contact No.</th>
+            <th>Contact Email</th>
+            <th>Logo</th>
+            <th>Department</th>
         </tr>
         </thead>
         <tbody>
         <?php
 
-        $words = getProducts();
+        // $words = getProducts();
+        $words = getUniversity();
+        $dpt = getDepartments(); 
 
+        print_r($dpt);
+
+
+            
+        ?>
+        <td><select name="" id="" class="form-control">
+                        <option value="">Choose...</option>
+                        <?php foreach($dpt as $row){ ?>
+                        <option value=""><?php echo $row['name']; ?></option>
+                        <?php } ?>
+                    </select></td>
+        <?php
+            
 
         if (count($words) > 0) {
             $length = count($words);
@@ -99,12 +115,15 @@ if (!$_user_id) {
                 ?>
                 <tr>
                     <td><?php echo $words[$i]['id']; ?></td>
-                    <td><?php echo $words[$i]['product_name']; ?></td>
-                    <td><?php echo $words[$i]['product_brand']; ?></td>
-                    <td><?php echo $words[$i]['product_price']; ?></td>
-                    <td><?php echo $words[$i]['product_quantity']; ?></td>
-                    <td><img src="assets/images/<?php echo $words[$i]['product_image']; ?>" height="200" width="200"></td>
-                    <td class="status"><?php echo $words[$i]['product_status']; ?></td>
+                    <td><?php echo $words[$i]['name']; ?></td>
+                    <td><?php echo $words[$i]['description']; ?></td>
+                    <td><?php echo $words[$i]['contact_number']; ?></td>
+                    <td><?php echo $words[$i]['contact_email']; ?></td>
+                    <td><img src="assets/images/<?php echo $words[$i]['uni_url']; ?>" height="200" width="200"></td>
+
+
+
+                    <!-- <td class="status"><?php echo $words[$i]['department']; ?></td> -->
                     <td><a class="button button-outline" href="">view</a></td>
                 </tr>
                 <?php

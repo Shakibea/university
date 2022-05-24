@@ -39,11 +39,52 @@ function getStatusMessage($statusCode = 0)
 }
 
 
-function getProducts()
+// function getProducts()
+// {
+//     global $connection;
+
+//     $query = "SELECT * FROM product";
+
+//     $result = mysqli_query($connection, $query);
+//     $data = [];
+//     while ($_data = mysqli_fetch_assoc($result)) {
+//         array_push($data, $_data);
+//     }
+//     return $data;
+
+// }
+function getUniversity()
 {
     global $connection;
 
-    $query = "SELECT * FROM product";
+    $query = "SELECT * FROM university";
+
+    $result = mysqli_query($connection, $query);
+    $data = [];
+    while ($_data = mysqli_fetch_assoc($result)) {
+        array_push($data, $_data);
+    }
+    return $data;
+
+}
+
+function getDepartments()
+{
+    global $connection;
+
+    $query = "SELECT p.*, f.*
+    FROM university p
+    INNER JOIN uni_dept pf
+    ON pf.uni = p.department
+    INNER JOIN department f
+    ON f.id = pf.dept;";
+
+    // $query = "SELECT university.*, department.* 
+    //             FROM university 
+    //             INNER JOIN department 
+    //             ON university.id =department.id;";
+
+
 
     $result = mysqli_query($connection, $query);
     $data = [];

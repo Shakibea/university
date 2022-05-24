@@ -478,7 +478,7 @@
 <!--  -->
 
 <!-- CONTACT -->
-<section id="contact" class="bg-dark text-white py-5">
+<!-- <section id="contact" class="bg-dark text-white py-5">
     <div class="dark-overlay">
         <div class="container">
             <div class="row">
@@ -517,14 +517,14 @@
                     </form>
                 </div>
 
-                <div class="col-lg-3 align-self-center">
+                <div class="col-lg-3 align-self-center"> -->
                     <!-- <img src="img/lights.jpg" alt="" class="img-fluid"> -->
-                    <h1>MyBrand</h1>
+                    <!-- <h1>MyBrand</h1>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!--  -->
