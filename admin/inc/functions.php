@@ -18,7 +18,7 @@ function photoChecking(string $photo)
     );
     if (isset($_FILES[$photo])) {
         if (in_array($_FILES[$photo]['type'], $types) !== false && $_FILES[$photo]['size'] < 3 * 1024 * 1024) {
-            move_uploaded_file($_FILES[$photo]['tmp_name'], "assets/images/" . $_FILES[$photo]['name']);
+            move_uploaded_file($_FILES[$photo]['tmp_name'], dirname(getcwd()) . "/admin/assets/images/" . $_FILES[$photo]['name']);
         }
     }
 }
@@ -57,7 +57,7 @@ function getUniversity()
 {
     global $connection;
 
-    $query = "SELECT * FROM university";
+    $query = "SELECT * FROM universities";
 
     $result = mysqli_query($connection, $query);
     $data = [];
@@ -67,33 +67,44 @@ function getUniversity()
     return $data;
 
 }
-
-function getDepartments()
+function getSingleUniversity($id)
 {
     global $connection;
 
-    $query = "SELECT p.*, f.*
-    FROM university p
-    INNER JOIN uni_dept pf
-    ON pf.uni = p.department
-    INNER JOIN department f
-    ON f.id = pf.dept;";
-
-    // $query = "SELECT university.*, department.* 
-    //             FROM university 
-    //             INNER JOIN department 
-    //             ON university.id =department.id;";
-
-
+    $query = "SELECT * FROM universities WHERE id=$id";
 
     $result = mysqli_query($connection, $query);
-    $data = [];
-    while ($_data = mysqli_fetch_assoc($result)) {
-        array_push($data, $_data);
-    }
-    return $data;
+    $data = mysqli_fetch_assoc($result);
 
+    return $data;
 }
+
+// function getDepartments()
+// {
+//     global $connection;
+
+//     // $query = "SELECT p.*, f.*
+//     // FROM university p
+//     // INNER JOIN uni_dept pf
+//     // ON pf.uni = p.department
+//     // INNER JOIN department f
+//     // ON f.id = pf.dept;";
+
+//     $query = "SELECT university.*, department.* 
+//                 FROM university 
+//                 INNER JOIN department 
+//                 ON university.id =department.id;";
+
+
+
+//     $result = mysqli_query($connection, $query);
+//     $data = [];
+//     while ($_data = mysqli_fetch_assoc($result)) {
+//         array_push($data, $_data);
+//     }
+//     return $data;
+
+// }
 
 function getProductId($id)
 {
@@ -109,6 +120,7 @@ function getProductId($id)
     return $data;
 
 }
+
 
 function getUsers($search = null)
 {

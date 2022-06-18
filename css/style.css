@@ -18,19 +18,19 @@ body {
 }
 
 .carousel-image-1 {
-    background: url("https://cdn.dribbble.com/users/2064122/screenshots/5274205/test.gif");
-    background-size: cover;
+    background: url("../img/university.jpg");
+    background-size: contain;
 }
 
-.carousel-image-2 {
-    background: url('../img/image2.jpg');
+/* .carousel-image-2 {
+    background: url('img/image2.jpg');
     background-size: cover;
 }
 
 .carousel-image-3 {
-    background: url('../img/image3.jpg');
+    background: url('img/image1.jpg');
     background-size: cover;
-}
+} */
 
 
 #home-heading {

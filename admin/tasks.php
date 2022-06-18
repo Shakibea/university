@@ -59,27 +59,56 @@ if (!$connection) {
         }
         header("Location: index.php?status={$statusCode}");
     } elseif ('addproduct' == $action) {
-        $pro_name = $_REQUEST['name'] ?? '';
-        $pro_definition = $_REQUEST['definition'] ?? '';
-        $pro_price = $_REQUEST['price'] ?? 0;
-        $pro_quantity = $_REQUEST['quantity'] ?? 0;
-        $pro_status = $_REQUEST['isavailable'] ?? '';
-        $pro_image = $_REQUEST['photo'] ?? '';
+        $uni_name = $_REQUEST['name'] ?? '';
+        $uni_description = $_REQUEST['definition'] ?? '';
+        $uni_url = $_REQUEST['url'] ?? '';
+        // $pro_price = $_REQUEST['price'] ?? 0;
+        // $pro_quantity = $_REQUEST['quantity'] ?? 0;
+        // $pro_status = $_REQUEST['isavailable'] ?? '';
+        $uni_image = $_REQUEST['photo'] ?? '';
 
         $_user_id = $_SESSION['id'];
 
-        $photoPath = $_FILES['photo']['name'];
+        $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];
 
         photoChecking('photo');
 
 
         $_user_id = $_SESSION['id'] ?? 0;
-        if ($pro_name && $pro_definition && $pro_price && $pro_quantity && $_user_id) {
-            $query = "INSERT INTO product(product_name, product_price, product_brand, product_quantity, product_status, product_image) VALUES ('{$pro_name}','{$pro_price}','{$pro_definition}','{$pro_quantity}','{$pro_status}', '{$photoPath}')";
+        if ($uni_name && $uni_description && $uni_url && $_user_id) {
+            $query = "INSERT INTO universities(name, description, logo, url) VALUES ('{$uni_name}','{$uni_description}','{$photoPath}','{$uni_url}')";
 //           echo $query;
             mysqli_query($connection, $query);
         }
         header("Location: admin.php");
+    } elseif ('update_university' == $action) {
+        $uni_name = $_REQUEST['name'] ?? '';
+        $uni_description = $_REQUEST['definition'] ?? '';
+        $uni_url = $_REQUEST['url'] ?? '';
+        // $pro_price = $_REQUEST['price'] ?? 0;
+        // $pro_quantity = $_REQUEST['quantity'] ?? 0;
+        // $pro_status = $_REQUEST['isavailable'] ?? '';
+        $uni_image = $_REQUEST['photo'] ?? '';
+        $uni_id = $_REQUEST['getId'] ?? 0;
+
+        $_user_id = $_SESSION['id'];
+
+        // var_dump($uni_image);
+
+        $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];
+
+        photoChecking('photo');
+
+
+
+
+        $_user_id = $_SESSION['id'] ?? 0;
+        if ($uni_name && $uni_description && $uni_url && $_user_id) {
+            $query = "UPDATE universities SET name='$uni_name',description='{$uni_description}',logo='{$photoPath}',url='{$uni_url}' WHERE id = $uni_id;";
+//           echo $query;
+            mysqli_query($connection, $query);
+        }
+        // header("Location: admin.php");
     }
 }
 

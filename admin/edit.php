@@ -53,17 +53,24 @@ photoChecking('photo');
         <i class="fas fa-store"></i> <br> Admin Dashboard
     </h1>
 
+    <?php 
+    $idFromView = $_GET['id'];
+    //fetching university data;
+    $data = getSingleUniversity($idFromView);
+
+    ?>
+
     <div class="wordsc helement" id="words">
         <div class="formc">
             <form name="myForm" onsubmit="return validateForm()" id="form01" method="post" action="tasks.php" enctype="multipart/form-data">
                 <h3>Add University</h3>
                 <fieldset>
                     <label for="name" >Name <span style="color: red;" id="valname">*</span></label>
-                    <input type="text" placeholder="Full Name" id="name" name="name" value="<?php echo $name; ?>">
+                    <input type="text" placeholder="Full Name" id="name" name="name" value="<?php echo $data['name']; ?>">
                     <label for="definition">Description <span style="color: red;" id="valdefinition">*</span></label>
-                    <input type="text" placeholder="Definition" id="definition" name="definition">
+                    <input type="text" placeholder="Definition" id="definition" name="definition" value="<?php echo $data['description']; ?>">
                     <label for="url">Url <span style="color: red;" id="valurl">*</span></label>
-                    <input type="text" placeholder="url" id="url" name="url">
+                    <input type="text" placeholder="url" id="url" name="url" value="<?php echo $data['url']; ?>">
                     <!-- <label for="price">Price <span id="valprice" style="color: red;">*</span></label>
                     <input type="number" placeholder="Price" id="price" name="price" value="<?php echo $_POST['price']; ?>">
                     <label for="quantity">Quantity <span id="valquantity" style="color: red;">*</span></label>
@@ -78,11 +85,13 @@ photoChecking('photo');
                     </div> -->
                     <label style="color: red;" id="valisavailable"></label>
 
+                    <img src="../<?php echo $data['logo']; ?>" height="200" width="200">
 
                     <label for="photo"></label>
                     <input type="file" name="photo" id="photo"> <br>
                     <input class="button-primary" type="submit" value="Submit">
-                    <input type="hidden" name="action" id="action" value="addproduct">
+                    <input type="hidden" name="getId" id="getId" value=<?php echo $idFromView; ?>>
+                    <input type="hidden" name="action" id="action" value="update_university">
                 </fieldset>
             </form>
         </div>

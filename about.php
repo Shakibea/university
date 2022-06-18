@@ -33,11 +33,11 @@
                         <a href="services.php" class="nav-link">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="blog.php" class="nav-link">Blog</a>
+                        <a href="universities.php" class="nav-link">Universities</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="contact.php" class="nav-link">Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -182,7 +182,7 @@
             <div class="row">
                 <div class="col">
                     <p>Copyright &copy;
-                        <span id="year"></span> Glozzom
+                        <span id="year"></span> University
                     </p>
                 </div>
             </div>

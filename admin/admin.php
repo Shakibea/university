@@ -56,9 +56,9 @@ if (!$_user_id) {
                 <div class="alpha">
                     <select id="alpha">
                         <option value="all">All Catagory</option>
-                        <option value="e">Electronics</option>
-                        <option value="g">Groceries</option>
-                        <option value="h">Health & Beauty</option>
+                        <option value="e">Top</option>
+                        <option value="g">Middle</option>
+                        <option value="h">Low</option>
                     </select>
 
                 </div>
@@ -82,8 +82,9 @@ if (!$_user_id) {
             <th>#Id</th>
             <th width="20%">Name</th>
             <th>Description</th>
-            <th>Contact No.</th>
-            <th>Contact Email</th>
+            <!-- <th>Contact No.</th> -->
+            <!-- <th>Contact Email</th> -->
+            <th>Url</th>
             <th>Logo</th>
             <th>Department</th>
         </tr>
@@ -93,19 +94,19 @@ if (!$_user_id) {
 
         // $words = getProducts();
         $words = getUniversity();
-        $dpt = getDepartments(); 
+        // $dpt = getDepartments(); 
 
-        print_r($dpt);
+        // print_r($dpt);
 
 
             
         ?>
-        <td><select name="" id="" class="form-control">
+        <!-- <td><select name="" id="" class="form-control">
                         <option value="">Choose...</option>
                         <?php foreach($dpt as $row){ ?>
                         <option value=""><?php echo $row['name']; ?></option>
                         <?php } ?>
-                    </select></td>
+                    </select></td> -->
         <?php
             
 
@@ -117,14 +118,14 @@ if (!$_user_id) {
                     <td><?php echo $words[$i]['id']; ?></td>
                     <td><?php echo $words[$i]['name']; ?></td>
                     <td><?php echo $words[$i]['description']; ?></td>
-                    <td><?php echo $words[$i]['contact_number']; ?></td>
-                    <td><?php echo $words[$i]['contact_email']; ?></td>
-                    <td><img src="assets/images/<?php echo $words[$i]['uni_url']; ?>" height="200" width="200"></td>
+                    <td><?php echo $words[$i]['url']; ?></td>
+                    <!-- <td><?php echo $words[$i]['contact_email']; ?></td> -->
+                    <td><img src="../<?php echo $words[$i]['logo']; ?>" height="200" width="200"></td>
 
 
 
                     <!-- <td class="status"><?php echo $words[$i]['department']; ?></td> -->
-                    <td><a class="button button-outline" href="">view</a></td>
+                    <td><a class="button button-outline" href="edit.php?id=<?php echo $words[$i]['id']; ?>">view</a></td>
                 </tr>
                 <?php
             }

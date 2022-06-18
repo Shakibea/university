@@ -33,15 +33,15 @@
                 <li class="nav-item">
                     <a href="about.php" class="nav-link">About Us</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="services.php" class="nav-link">Services</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a href="blog.php" class="nav-link">Blog</a>
+                    <a href="universities.php" class="nav-link">Universities</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="contact.php" class="nav-link">Contact</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <div class="search-box">
                         <input type="text" autocomplete="off" placeholder="Search University..." />
@@ -65,45 +65,19 @@
             <div class="carousel-item carousel-image-1 active">
                 <div class="container">
                     <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                        <h1 class="display-3">Heading One</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat reprehenderit
-                            inventore eum sequi dolorum distinctio adipisci modi a dolores asperiores.</p>
-                        <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a>
+                        <h1 class="display-3">Welcome</h1>
+                        <!-- <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat reprehenderit
+                            inventore eum sequi dolorum distinctio adipisci modi a dolores asperiores.</p> -->
+                        <!-- <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a> -->
                     </div>
                 </div>
             </div>
-            <div class="carousel-item carousel-image-2">
-                <div class="container">
-                    <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                        <h1 class="display-3">Heading Two</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat reprehenderit
-                            inventore eum sequi dolorum distinctio adipisci modi a dolores asperiores.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Sign Up Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item carousel-image-3">
-                <div class="container">
-                    <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                        <h1 class="display-3">Heading Three</h1>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat reprehenderit
-                            inventore eum sequi dolorum distinctio adipisci modi a dolores asperiores.</p>
-                        <a href="#" class="btn btn-success btn-lg">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a href="#myCarousel" data-slide="next" class="carousel-control-next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
         </div>
     </div>
 </section>
 
 <!-- HOME ICON SECTOIN -->
-<section id="home-icons" class="py-5">
+<!-- <section id="home-icons" class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4 text-center">
@@ -123,7 +97,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- HOME HEADING SECTION -->
 <section id="home-heading" class="p-5">
@@ -132,8 +106,9 @@
             <div class="col">
                 <div class="container pt-5">
                     <h1>Are You Ready To Get Started?</h1>
-                    <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nostrum
-                        natus ipsa tempora nemo beatae repellat porro quia aliquam quaerat!</p>
+                    <p class="d-none d-md-block">
+                        Let's find out which university is best for your career!
+                    </p>
                 </div>
             </div>
         </div>
@@ -166,11 +141,11 @@
             <div class="col">
                 <div class="info-header mb-5">
                     <h1 class="text-primary pb-3">
-                        Why This Course?
+                        Why Us?
                     </h1>
                     <p class="lead pb-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus obcaecati alias rerum dolore
-                        fugiat debitis?
+                        To Find you the best of the best universities in Bangladesh. Here you can find your desire 
+                        university, you wish to get information.
                     </p>
                 </div>
 
@@ -247,83 +222,36 @@
     </div>
 </section>
 
-
 <!-- Ending Mizz -->
 
-<!-- VIDEO PLAY -->
-<!-- <section id="video-play">
-    <div class="dark-overlay">
-        <div class="row">
-            <div class="col">
-                <div class="container mt-5 p-5">
-                    <a href="#" class="video" data-video="https://www.youtube.com/embed/C-u5WLJ9Yk4"
-                       data-target="#videoModal" data-toggle="modal">
-                        <i class="fas fa-play fa-3x"></i>
-                    </a>
-                    <h1 class="mt-3">See What We Do</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 
 <!-- starting mi -->
 
 <!-- AUTHORS -->
-<section id="authors" class="my-5 text-center">
+<!-- <section id="authors" class="my-5 text-center">
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="info-header mb-5">
                     <h1 class="text-primary pb-3">
-                        Meet The consultant
+                        Any Help From Us?
                     </h1>
                     <p class="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias laborum numquam aperiam dolores a
-                        porro!
+                        Meet our Team
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="img/person1.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                        <h3>My Name</h3>
-                        <h5 class="text-muted">Lead Writer</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero
-                            voluptas officia.</p>
-                        <div class="d-flex justify-content-center">
-                            <div class="p-4">
-                                <a href="http://facebook.com">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                            </div>
-                            <div class="p-4">
-                                <a href="http://twitter.com">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                            <div class="p-4">
-                                <a href="http://instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div style="justify-content: center;" class="row">
 
             <div class="col-lg-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <img src="img/person2.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
                         <h3>My Name</h3>
-                        <h5 class="text-muted">Co-Writer</h5>
+                        <h5 class="text-muted">Lead</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero
                             voluptas officia.</p>
                         <div class="d-flex justify-content-center">
@@ -353,37 +281,7 @@
                     <div class="card-body">
                         <img src="img/person3.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
                         <h3>My Name</h3>
-                        <h5 class="text-muted">Editor</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero
-                            voluptas officia.</p>
-                        <div class="d-flex justify-content-center">
-                            <div class="p-4">
-                                <a href="http://facebook.com">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                            </div>
-                            <div class="p-4">
-                                <a href="http://twitter.com">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                            <div class="p-4">
-                                <a href="http://instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="img/person4.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                        <h3>My Name</h3>
-                        <h5 class="text-muted">Designer</h5>
+                        <h5 class="text-muted">Asst. Lead</h5>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed commodi nostrum, ab libero
                             voluptas officia.</p>
                         <div class="d-flex justify-content-center">
@@ -409,7 +307,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- ending mi -->
@@ -419,7 +317,7 @@
 <section id="gallery" class="py-5">
     <div class="container">
         <h1 class="text-center">Photo Gallery</h1>
-        <p class="text-center">Check out our photos</p>
+        <p class="text-center">Check out Universities Gallery</p>
         <div class="row mb-4">
             <div class="col-md-4">
                 <a href="https://source.unsplash.com/random/560x560" data-toggle="lightbox" data-gallery="img-gallery"

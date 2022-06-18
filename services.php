@@ -1,5 +1,6 @@
 <?php 
 include "dbConfig.php";
+include "admin/inc/functions.php";
 
 ?>
 
@@ -66,51 +67,85 @@ include "dbConfig.php";
         <div class="row">
             <?php
             // Fetching all university
-            // $sql = "SELECT id, name, description FROM university";
+            // $sql = "SELECT * FROM universities";
 
-            // $sql = "SELECT university.id, university.name AS name , department.dep_name, department.id
+            // $sql = "SELECT universities.id, university.name AS name , department.dep_name, department.id
             //     FROM university
             //     INNER JOIN department ON university.id = department.id";
 
+            // $sql = "SELECT universities.*, courses.*
+            // FROM universities
+            // INNER JOIN courses ON universities.id = courses.uni_id";
+
+
             // $result = mysqli_query($conn, $sql);
-            
             // if (mysqli_num_rows($result) > 0) {
             //   // output data of each row
-            //   while($row = mysqli_fetch_assoc($result)) { 
+            //   while($row = mysqli_fetch_assoc($result)) {
+
+
+                $universities = getUniversity();
+                if (count($universities) > 0) {
+                    $length = count($universities);
+                    for ($i = 0; $i < $length; $i++) {
+
                   ?>
 
                 <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header bg-dark text-white">
                         <!-- <h3><?php echo $row["name"] ?></h3> -->
-                        <h3>PostGrad</h3>
+                        <h3><?php echo $universities[$i]['name']; ?></h3>
                     </div>
                     <div class="card-body">
-                        <!-- <h4 class="card-title">$59.99/Month</h4> -->
                         <!-- <p class="card-text"><?php echo $row["description"] ?></p> -->
+                        <p class="card-text"><?php echo $universities[$i]['description']; ?></p>
                         <ul class="list-group">
                             <!-- <li class="list-group-item">
                                 <i class="fas fa-check"></i> CSE
                             </li> -->
+
+                            <?php    
+                            // $sql2 = "SELECT universities.*, courses.*
+                            //     FROM universities
+                            //     JOIN courses ON universities.id = courses.uni_id";
+
+                            $uni_id = $universities[$i]['id'];;
+
+                            $sql2 = "SELECT courses.*
+                                FROM courses WHERE courses.uni_id = $uni_id;";
+
+                            $result2 = mysqli_query($conn, $sql2);   
+                            if (mysqli_num_rows($result2) > 0) {
+                                // output data of each row
+                                while($row2 = mysqli_fetch_assoc($result2)) { 
+                            ?>
                             <div id="accordion">
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="mb-0">
-                                            <a href="#collapse1" data-toggle="collapse" data-parent="#accordion">
-                                                <i class="fas fa-arrow-circle-down"></i> CSE
+                                            <a href="#collapse<?php echo $row2["id"]; ?>" data-toggle="collapse" data-parent="#accordion">
+                                                <i class="fas fa-arrow-circle-down">
+                                                <?php echo $row2["p_name"]; ?>
+                                                </i>
                                             </a>
                                         </h5>
                                     </div>
 
-                                    <div id="collapse1" class="collapse show">
+                                    <div id="collapse<?php echo $row2["id"]; ?>" class="collapse">
                                         <div class="card-body">
-                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit odit laborum qui,
-                                            debitis, sequi dolores nobis mollitia
+                                            Undergraduate Fees:
+                                            <?php echo $row2["under_fees"]; ?>
+                                            <br>
+                                            Postgraduate Fees:
+                                            <?php echo $row2["post_fees"]; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <li class="list-group-item">
+
+
+                            <!-- <li class="list-group-item">
                                 <i class="fas fa-check"></i> BBA
                             </li>
                             <li class="list-group-item">
@@ -118,7 +153,16 @@ include "dbConfig.php";
                             </li>
                             <li class="list-group-item">
                                 <i class="fas fa-check"></i> MBA
-                            </li>
+                            </li> -->
+
+
+                            <?php
+                                }
+                                    } else {
+                                        echo "0 results";
+                                    }
+                            ?>
+
                         </ul>
                         <a href="#" class="btn btn-danger btn-block mt-2">Get It</a>
                     </div>
@@ -129,11 +173,13 @@ include "dbConfig.php";
             </div>
 
             <?php
-            //   }
-            // } else {
+              }
+            } 
+            // else {
             //   echo "0 results";
             // }
-            // mysqli_close($conn); ?>
+            // mysqli_close($conn); 
+            ?>
 
         </div>
     </div>
