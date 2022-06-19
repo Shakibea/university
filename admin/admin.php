@@ -1,6 +1,6 @@
 <?php
 session_start([
-    'cookie_lifetime' => 3000,
+    'cookie_lifetime' => 30000,
 ]);
 
 include_once 'inc/functions.php';
@@ -8,7 +8,7 @@ include_once 'inc/functions.php';
 $_user_id = $_SESSION['id'] ?? 0;
 
 //setting cookie
-setcookie('userIdCookie', $_user_id, time() + 300);
+setcookie('userIdCookie', $_user_id, time() + 3000);
 
 $_user_name = $_SESSION['name'] ?? '';
 if (!$_user_id) {
@@ -87,6 +87,7 @@ if (!$_user_id) {
             <th>Url</th>
             <th>Logo</th>
             <th>Department</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -125,7 +126,8 @@ if (!$_user_id) {
 
 
                     <!-- <td class="status"><?php echo $words[$i]['department']; ?></td> -->
-                    <td><a class="button button-outline" href="edit.php?id=<?php echo $words[$i]['id']; ?>">view</a></td>
+                    <td><a class="button button-outline" href="add_department.php?id=<?php echo $words[$i]['id']; ?>">view</a></td>
+                    <td><a class="button button-outline" href="edit.php?id=<?php echo $words[$i]['id']; ?>">details</a></td>
                 </tr>
                 <?php
             }

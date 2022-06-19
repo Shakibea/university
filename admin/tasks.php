@@ -88,27 +88,29 @@ if (!$connection) {
         // $pro_price = $_REQUEST['price'] ?? 0;
         // $pro_quantity = $_REQUEST['quantity'] ?? 0;
         // $pro_status = $_REQUEST['isavailable'] ?? '';
-        $uni_image = $_REQUEST['photo'] ?? '';
+        $uni_image = $_REQUEST['getLogo'] ?? '';
         $uni_id = $_REQUEST['getId'] ?? 0;
 
         $_user_id = $_SESSION['id'];
 
         // var_dump($uni_image);
 
-        $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];
+        // if($uni_image == ""){
+            $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];   
+        // }else{
+        //     $photoPath = "admin/assets/images/" . $uni_image;
+        // }
 
         photoChecking('photo');
-
-
 
 
         $_user_id = $_SESSION['id'] ?? 0;
         if ($uni_name && $uni_description && $uni_url && $_user_id) {
             $query = "UPDATE universities SET name='$uni_name',description='{$uni_description}',logo='{$photoPath}',url='{$uni_url}' WHERE id = $uni_id;";
-//           echo $query;
+// //           echo $query;
             mysqli_query($connection, $query);
         }
-        // header("Location: admin.php");
+        header("Location: admin.php");
     }
 }
 

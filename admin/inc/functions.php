@@ -67,6 +67,21 @@ function getUniversity()
     return $data;
 
 }
+function getCourses($id)
+{
+    global $connection;
+
+    $query = "SELECT * FROM courses where uni_id=$id";
+
+    $result = mysqli_query($connection, $query);
+    $data = [];
+    while ($_data = mysqli_fetch_assoc($result)) {
+        array_push($data, $_data);
+    }
+    return $data;
+
+}
+
 function getSingleUniversity($id)
 {
     global $connection;
