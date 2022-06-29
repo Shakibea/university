@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["id"])) {
-    $connect = mysqli_connect("localhost", "root", "", "e-commerce");
+    $connect = mysqli_connect("localhost", "root", "", "universities");
     $query = "SELECT * FROM users WHERE id = '" . $_POST["id"] . "'";
     $result = mysqli_query($connect, $query);
     while ($row = mysqli_fetch_array($result)) {

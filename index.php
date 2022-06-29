@@ -65,7 +65,7 @@
             <div class="carousel-item carousel-image-1 active">
                 <div class="container">
                     <div class="carousel-caption d-none d-sm-block text-right mb-5">
-                        <h1 class="display-3">Welcome</h1>
+                        <h1 style="font-weight: bold;" class="display-3">Welcome</h1>
                         <!-- <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat reprehenderit
                             inventore eum sequi dolorum distinctio adipisci modi a dolores asperiores.</p> -->
                         <!-- <a href="#" class="btn btn-danger btn-lg">Sign Up Now</a> -->

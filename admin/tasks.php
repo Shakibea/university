@@ -62,9 +62,6 @@ if (!$connection) {
         $uni_name = $_REQUEST['name'] ?? '';
         $uni_description = $_REQUEST['definition'] ?? '';
         $uni_url = $_REQUEST['url'] ?? '';
-        // $pro_price = $_REQUEST['price'] ?? 0;
-        // $pro_quantity = $_REQUEST['quantity'] ?? 0;
-        // $pro_status = $_REQUEST['isavailable'] ?? '';
         $uni_image = $_REQUEST['photo'] ?? '';
 
         $_user_id = $_SESSION['id'];
@@ -85,23 +82,19 @@ if (!$connection) {
         $uni_name = $_REQUEST['name'] ?? '';
         $uni_description = $_REQUEST['definition'] ?? '';
         $uni_url = $_REQUEST['url'] ?? '';
-        // $pro_price = $_REQUEST['price'] ?? 0;
-        // $pro_quantity = $_REQUEST['quantity'] ?? 0;
-        // $pro_status = $_REQUEST['isavailable'] ?? '';
-        $uni_image = $_REQUEST['getLogo'] ?? '';
+        $uni_image = $_POST['getLogo'] ?? '';
         $uni_id = $_REQUEST['getId'] ?? 0;
 
-        $_user_id = $_SESSION['id'];
 
-        // var_dump($uni_image);
-
-        // if($uni_image == ""){
-            $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];   
-        // }else{
-        //     $photoPath = "admin/assets/images/" . $uni_image;
-        // }
-
+        if($uni_image == ""){
+            $photoPath = "admin/assets/images/" . $_FILES['photo']['name'];
+            
+        }else{
+            $photoPath = "admin/assets/images/" . $uni_image;
+        }
+            
         photoChecking('photo');
+
 
 
         $_user_id = $_SESSION['id'] ?? 0;
@@ -111,6 +104,65 @@ if (!$connection) {
             mysqli_query($connection, $query);
         }
         header("Location: admin.php");
+    }else if(isset($_POST['save_multiple_data'])){
+        // if()
+        //     {
+                $name = $_POST['name'];
+                $underfee = $_POST['underfee'];
+                $postfee = $_POST['postfee'];
+                $underorpost = $_POST['underorpost'];
+                $id = $_POST['action'];
+
+                foreach($name as $index => $names)
+                {
+                    $s_name = $names;
+                    $s_underfee = $underfee[$index];
+                    $s_postfee = $postfee[$index];
+                    $s_underorpost = $underorpost[$index];
+                    // $s_action = $action[$index];
+                    // $s_otherfiled = $empid[$index];
+
+                    $query = "INSERT INTO courses (uni_id,p_name,under_fees,post_fees,under_post) VALUES ('$id','$s_name','$s_underfee','$s_postfee','$s_underorpost')";
+                    $query_run = mysqli_query($connection, $query);
+                }
+
+                if($query_run)
+                {
+                    $_SESSION['status'] = "Data Inserted Successfully";
+                    header("Location: add_department.php?id=". $id);
+                    exit(0);
+                }
+                else
+                {
+                    $_SESSION['status'] = "Data Not Inserted";
+                    header("Location: add_department.php?id=". $id);
+                    exit(0);
+                }
+            // }
+    }else if ($_GET['key'] == "uni"){
+        //mysql relation cascade
+        $sql = "DELETE FROM universities WHERE id='" . $_GET["id"] . "'";
+        
+        if (mysqli_query($connection, $sql)) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . mysqli_error($connection);
+        }
+        mysqli_close($connection);
+
+        header("Location: admin.php");
+    }else if ($_GET["key"] == "dep"){
+
+        $sql = "DELETE FROM courses WHERE id='" . $_GET["id"] . "'";
+        if (mysqli_query($connection, $sql)) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . mysqli_error($connection);
+        }
+        mysqli_close($connection);
+
+        header("Location: add_department.php?id=".$_GET['uniid']??0);
+        
     }
 }
 

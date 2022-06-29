@@ -29,15 +29,12 @@
                     <li class="nav-item active">
                         <a href="about.php" class="nav-link">About Us</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="services.php" class="nav-link">Services</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="universities.php" class="nav-link">Universities</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="contact.php" class="nav-link">Contact</a>
-                    </li> -->
                 </ul>
             </div>
         </div>

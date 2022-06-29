@@ -127,7 +127,9 @@ if (!$_user_id) {
 
                     <!-- <td class="status"><?php echo $words[$i]['department']; ?></td> -->
                     <td><a class="button button-outline" href="add_department.php?id=<?php echo $words[$i]['id']; ?>">view</a></td>
-                    <td><a class="button button-outline" href="edit.php?id=<?php echo $words[$i]['id']; ?>">details</a></td>
+                    <td><a class="button button-outline" href="edit.php?id=<?php echo $words[$i]['id']; ?>">Edit</a>
+                    || <a class="button button-outline" href="tasks.php?id=<?php echo $words[$i]['id']; ?>&key=uni">Delete</a>
+                    </td>
                 </tr>
                 <?php
             }

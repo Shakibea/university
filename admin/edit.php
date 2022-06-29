@@ -42,7 +42,6 @@ photoChecking('photo');
         <li><a href="admin.php" class="menu-item">All University</a></li>
         <li><a href="add_product.php" class="menu-item">Add New University</a></li>
         <li><a href="admin_user.php" class="menu-item">All Users</a></li>
-        <!-- <li><a href="#" class="menu-item">Order List</a></li> -->
         <br>
         <li><a href="index.php">Logout</a></li>
     </ul>
@@ -54,7 +53,7 @@ photoChecking('photo');
     </h1>
 
     <?php 
-    $idFromView = $_GET['id'];
+    $idFromView = $_GET['id'] ?? '';
     //fetching university data;
     $data = getSingleUniversity($idFromView);
 
@@ -87,54 +86,20 @@ photoChecking('photo');
 
                     <img src="../<?php echo $data['logo']; ?>" height="200" width="200">
 
-                    <?php var_dump(substr($data['logo'], 20)); ?>
+                    <?php 
+                        $check = substr($data['logo'], 20);
+                    ?>
 
-                    <label for="photo"></label>
+                    <label for="photo"><?php echo $check; ?></label>
+
+                    <?php if($check == ""){ ?>
                     <input type="file" name="photo" id="photo"> <br>
+                    <?php } ?>
+
                     <input class="button-primary" type="submit" value="Submit">
                     <input type="hidden" name="getId" id="getId" value=<?php echo $idFromView; ?>>
-                    <input type="hidden" name="getLogo" id="getLogo" value=<?php echo substr($data['logo'], 20); ?>>
+                    <input type="hidden" name="getLogo" id="getLogo" value="<?php echo substr($data['logo'], 20); ?>">
                     <input type="hidden" name="action" id="action" value="update_university">
-
-                    <hr>
-                    <hr>
-                    <br>
-                    <div class="card mt-4">
-                    <div class="card-header">
-                        <h4>How to Insert Multiple Data into Database in PHP MySQL
-                            <a href="javascript:void(0)" class="add-more-form float-end btn btn-primary">ADD MORE</a>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-
-                        <form action="code.php" method="POST">
-                        
-                            <div class="main-form mt-3 border-bottom">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-2">
-                                            <label for="">Name</label>
-                                            <input type="text" name="name[]" class="form-control" required placeholder="Enter Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-2">
-                                            <label for="">Phone Number</label>
-                                            <input type="text" name="phone[]" class="form-control" required placeholder="Enter Phone Number">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="paste-new-forms"></div>
-
-                            <button type="submit" name="save_multiple_data" class="btn btn-primary">Save Multiple Data</button>
-                        </form>
-
-                    </div>
-                </div>
-    <!-- testing with multiple add -->
-
 
                 </fieldset>
             </form>
@@ -145,44 +110,10 @@ photoChecking('photo');
 </div>
 
 
-<!-- <script src="//code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
+<script src="//code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="assets/js/script.js?1"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" ></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" ></script> -->
 
-    <script>
-        $(document).ready(function () {
-
-            $(document).on('click', '.remove-btn', function () {
-                $(this).closest('.main-form').remove();
-            });
-            
-            $(document).on('click', '.add-more-form', function () {
-                $('.paste-new-forms').append('<div class="main-form mt-3 border-bottom">\
-                                <div class="row">\
-                                    <div class="col-md-4">\
-                                        <div class="form-group mb-2">\
-                                            <label for="">Name</label>\
-                                            <input type="text" name="name[]" class="form-control" required placeholder="Enter Name">\
-                                        </div>\
-                                    </div>\
-                                    <div class="col-md-4">\
-                                        <div class="form-group mb-2">\
-                                            <label for="">Phone Number</label>\
-                                            <input type="text" name="phone[]" class="form-control" required placeholder="Enter Phone Number">\
-                                        </div>\
-                                    </div>\
-                                    <div class="col-md-4">\
-                                        <div class="form-group mb-2">\
-                                            <br>\
-                                            <button type="button" class="remove-btn btn btn-danger">Remove</button>\
-                                        </div>\
-                                    </div>\
-                                </div>\
-                            </div>');
-            });
-
-        });
-    </script>
 
 </body>
 </html>

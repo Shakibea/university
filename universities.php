@@ -36,9 +36,9 @@ include "admin/inc/functions.php";
                 <li class="nav-item">
                     <a href="about.php" class="nav-link">About Us</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="services.php" class="nav-link">Services</a>
-                </li>
+                </li> -->
                 <li class="nav-item active">
                     <a href="universities.php" class="nav-link">Universities</a>
                 </li>
@@ -85,7 +85,7 @@ include "admin/inc/functions.php";
                             <img src="<?php echo $universities[$i]['logo']; ?>" alt="" class="img-fluid card-img-top">
                             <div class="card-body">
                                 <h4 class="card-title"><?php echo $universities[$i]['name']; ?></h4>
-                                <small class="text-muted">Written by One on 05/20</small>
+                                <!-- <small class="text-muted">Written by One on 05/20</small> -->
                                 <hr>
                                 <p class="card-text">
                                 <?php echo $universities[$i]['description']; ?>

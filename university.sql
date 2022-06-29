@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2022 at 11:42 PM
+-- Generation Time: Jun 29, 2022 at 11:08 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -45,13 +45,7 @@ INSERT INTO `courses` (`id`, `uni_id`, `p_name`, `under_fees`, `post_fees`, `und
 (1, 1, 'CSE', '100', '200', 0),
 (3, 1, 'BBA', '600', '10', 0),
 (4, 2, 'cse', '10000', '200', 0),
-(5, 2, 'bba', '1000000', '2034', 0),
-(6, 1, 'mba', '0', '23423', 1),
-(7, 2, 'mba', '123', '343', 1),
-(8, 1, 'EEE', '213', '0', 0),
-(9, 1, 'MSc', '0', '324', 1),
-(18, 1, 'Shakib Ebna Atiq', '1323', '213', 0),
-(19, 1, 'Shakib Ebna Atiq', '1323', '213', 0);
+(9, 1, 'MSc', '0', '324', 1);
 
 -- --------------------------------------------------------
 
@@ -72,9 +66,9 @@ CREATE TABLE `universities` (
 --
 
 INSERT INTO `universities` (`id`, `name`, `description`, `logo`, `url`) VALUES
-(1, 'Array', 'Where leaders are created', 'admin/assets/images/', 'https://aiub.edu'),
+(1, 'AIUB', 'Where leaders are created', 'admin/assets/images/aiub.jpg', 'https://aiub.edu'),
 (2, 'NSU', 'North South University', 'admin/assets/images/nsu.png', 'http://nsu.edu'),
-(5, 'Daffodil University ..', 'As Flower', 'admin/assets/images/অ-a-Tracing-Worksheet-min.png', 'http://google.com');
+(5, 'Daffodil University ..', 'As Flower ', 'admin/assets/images/diu.jpg', 'http://google.com');
 
 -- --------------------------------------------------------
 
@@ -134,7 +128,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `universities`

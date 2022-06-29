@@ -32,18 +32,15 @@ include "admin/inc/functions.php";
                     <li class="nav-item">
                         <a href="index.php" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="about.php" class="nav-link">About Us</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="services.php" class="nav-link">Services</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a href="universities.php" class="nav-link">Universities</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="contact.php" class="nav-link">Contact</a>
-                    </li> -->
                 </ul>
             </div>
         </div>
@@ -113,14 +110,8 @@ include "admin/inc/functions.php";
 
                             <?php    
                                 $sql = "SELECT courses.*
-                                    FROM courses WHERE courses.uni_id = $uni_id;";
+                                    FROM courses WHERE courses.uni_id = $uni_id and under_post=0;";
 
-                                    // declaring variable
-                                    $id = 0;
-                                    $course_name = '';
-                                    $under_fees = '';
-                                    $post_fees = '';
-                                    $under_post = 0;
 
                                 $result = mysqli_query($conn, $sql);   
                                 if (mysqli_num_rows($result) > 0) {
@@ -183,8 +174,24 @@ include "admin/inc/functions.php";
                         <ul class="list-group">
 
                             <?php       
-                                // when, this is postgraduate
-                                if($under_post == 1): 
+
+                                $sql = "SELECT courses.*
+                                    FROM courses WHERE courses.uni_id = $uni_id and under_post=1;";
+
+                                $result = mysqli_query($conn, $sql);   
+                                if (mysqli_num_rows($result) > 0) {
+                                    // output data of each row
+                                    while($row = mysqli_fetch_assoc($result)) { 
+
+                                        // Store data in variable for reusing.
+                                        $id = $row["id"] ?? 0;
+                                        $course_name = $row["p_name"] ?? '';
+                                        $under_fees = $row["under_fees"] ?? '';
+                                        $post_fees = $row["post_fees"] ?? '';
+                                        $under_post = $row["under_post"] ?? 0;
+
+                                        // when, this is postgraduate
+                                        if($under_post == 1){
 
                             ?>
                                 <div id="accordion">
@@ -208,7 +215,11 @@ include "admin/inc/functions.php";
                                     </div>
                                 </div>
                             <?php
-                                endif;
+                                }
+                            }
+                                } else {
+                                    echo "0 results";
+                                }
                             ?>
 
                          </ul>

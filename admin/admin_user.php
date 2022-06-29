@@ -39,10 +39,9 @@ $result = mysqli_query($connect, $query);
     <ul class="menu">
         <li><a href="#" class="menu-item">Profile <?php echo "(" . $_user_name . ")"; ?></a></li>
         <br>
-        <li><a href="admin.php" class="menu-item">All Products</a></li>
-        <li><a href="add_product.php" class="menu-item">Add New Products</a></li>
+        <li><a href="admin.php" class="menu-item">All University</a></li>
+        <li><a href="add_product.php" class="menu-item">Add New University</a></li>
         <li><a href="admin_user.php" class="menu-item">All Users</a></li>
-        <li><a href="#" class="menu-item">Order List</a></li>
         <br>
         <li><a href="index.php">Logout</a></li>
     </ul>
@@ -70,8 +69,6 @@ $result = mysqli_query($connect, $query);
 
             <div class="column column-30">
                 <button class="float-right" name="search" id="search" value="search">Search</button>
-
-
             </div>
 
         </div>

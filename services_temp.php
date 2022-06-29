@@ -67,22 +67,6 @@ include "admin/inc/functions.php";
         <div class="row">
             <?php
             // Fetching all university
-            // $sql = "SELECT * FROM universities";
-
-            // $sql = "SELECT universities.id, university.name AS name , department.dep_name, department.id
-            //     FROM university
-            //     INNER JOIN department ON university.id = department.id";
-
-            // $sql = "SELECT universities.*, courses.*
-            // FROM universities
-            // INNER JOIN courses ON universities.id = courses.uni_id";
-
-
-            // $result = mysqli_query($conn, $sql);
-            // if (mysqli_num_rows($result) > 0) {
-            //   // output data of each row
-            //   while($row = mysqli_fetch_assoc($result)) {
-
 
                 $universities = getUniversity();
                 if (count($universities) > 0) {
@@ -101,14 +85,8 @@ include "admin/inc/functions.php";
                         <!-- <p class="card-text"><?php echo $row["description"] ?></p> -->
                         <p class="card-text"><?php echo $universities[$i]['description']; ?></p>
                         <ul class="list-group">
-                            <!-- <li class="list-group-item">
-                                <i class="fas fa-check"></i> CSE
-                            </li> -->
 
                             <?php    
-                            // $sql2 = "SELECT universities.*, courses.*
-                            //     FROM universities
-                            //     JOIN courses ON universities.id = courses.uni_id";
 
                             $uni_id = $universities[$i]['id'];;
 
@@ -144,18 +122,6 @@ include "admin/inc/functions.php";
                                 </div>
                             </div>
 
-
-                            <!-- <li class="list-group-item">
-                                <i class="fas fa-check"></i> BBA
-                            </li>
-                            <li class="list-group-item">
-                                <i class="fas fa-check"></i> EEE
-                            </li>
-                            <li class="list-group-item">
-                                <i class="fas fa-check"></i> MBA
-                            </li> -->
-
-
                             <?php
                                 }
                                     } else {
@@ -166,19 +132,12 @@ include "admin/inc/functions.php";
                         </ul>
                         <a href="#" class="btn btn-danger btn-block mt-2">Get It</a>
                     </div>
-                    <!-- <div class="card-footer text-muted">
-                        1 Year Plan
-                    </div> -->
                 </div>
             </div>
 
             <?php
               }
             } 
-            // else {
-            //   echo "0 results";
-            // }
-            // mysqli_close($conn); 
             ?>
 
         </div>
@@ -321,17 +280,6 @@ include "admin/inc/functions.php";
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer id="main-footer" class="text-center p-4">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <p>Copyright &copy;
-                    <span id="year"></span> Glozzom</p>
-            </div>
-        </div>
-    </div>
-</footer>
 
 
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -1,6 +1,6 @@
 <?php session_start(); 
 include 'inc/functions.php';
-
+$id = $_GET['id'] ?? '';
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,13 +31,15 @@ include 'inc/functions.php';
 
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h4>Add Department
+                        <h4>
+                            <a href="admin.php" class="float-center btn btn-danger">Back</a>
+                            Add / View Department
                             <a href="javascript:void(0)" class="add-more-form float-end btn btn-primary">Add new Department</a>
                         </h4>
                     </div>
                     <div class="card-body">
 
-                        <form action="code.php" method="POST">
+                        <form action="tasks.php" method="POST">
                         
                             <div class="main-form mt-3 border-bottom">
                                 <div class="row">
@@ -73,8 +75,8 @@ include 'inc/functions.php';
                             </div>
 
                             <div class="paste-new-forms"></div>
-                            <!-- <input type="hidden" name="action" id="action" value=<?php $id; ?>> -->
-                            <button type="submit" name="save_multiple_data" class="btn btn-primary">Save Multiple Data</button>
+                            <input type="hidden" name="action" id="action" value=<?php echo $id; ?>>
+                            <button type="submit" name="save_multiple_data" class="btn btn-primary">Save Department</button>
                         </form>
 
                     </div>
@@ -87,16 +89,16 @@ include 'inc/functions.php';
                         <th scope="col">Under Fees</th>
                         <th scope="col">Post Fees</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php 
-                    $id = $_GET['id'];
+                    // $id = $_GET['id'];
                     $data = getCourses($id); 
                     if (count($data) > 0) {
                         $length = count($data);
                         for ($i = 0; $i < $length; $i++) {
-                            
                     ?>
                         <tr>
                         <th scope="row"><?php echo $data[$i]['id']; ?></th>
@@ -104,7 +106,8 @@ include 'inc/functions.php';
                         <td><?php echo $data[$i]['under_fees']; ?></td>
                         <td><?php echo $data[$i]['post_fees']; ?></td>
                         <td><?php echo $data[$i]['under_post'] == 0 ? 'undergraduate' : 'postgraduate'; ?></td>
-                        </tr>
+                        <td> <a class="button button-outline" href="tasks.php?id=<?php echo $data[$i]['id']; ?>&key=dep&uniid=<?php echo $id; ?>">Delete</a> </td>    
+                    </tr>
                         <?php
                             }
                         }
